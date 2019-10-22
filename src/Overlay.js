@@ -16,9 +16,6 @@ const ZoomWrapper = ({ children, displayClass }) => {
 };
 
 const Overlay = ({ isFlash, display, displayClass }) => {
-  // const [pic1, pic2, pic3] = pictures;
-  // console.log(pic1);
-
   return (
     <>
       <div className={classNames("overlay", { flash: isFlash })}></div>
@@ -30,15 +27,6 @@ const Overlay = ({ isFlash, display, displayClass }) => {
             </ZoomWrapper>
           </div>
         )}
-        {/* {isPrinting && (
-          <div className="overlay-count overlay-printing">
-            <h1>Printing...</h1>
-          </div>
-        )} */}
-        {/* 
-        {pic1 && <img className="pic pic-one" alt="pic one" src={pic1} />}
-        {pic2 && <img className="pic pic-two" alt="pic two" src={pic2} />}
-        {pic3 && <img className="pic pic-three" alt="pic three" src={pic3} />} */}
       </div>
     </>
   );
