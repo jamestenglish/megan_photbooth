@@ -1,22 +1,153 @@
-.App {
+/* @import url("/font.woff2"); */
+
+@import url("https://fonts.googleapis.com/css?family=Pinyon+Script&display=swap");
+
+/* @font-face {
+  font-family: "Pinyon Scriot", cursive;
+  src: url("/font.woff2");
+} */
+
+body {
+  background-color: #263241;
+  /* background-color: #42425a; */
+  color: #fffff0;
+  font-family: "Pinyon Script", cursive;
+}
+
+/* body:fullscreen {
+  background-color: #263241;
+  /* background-color: #42425a; */
+/* color: #fffff0;
+} */
+*/ *:fullscreen,
+*:-webkit-full-screen,
+*:-moz-full-screen {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+}
+
+.fullscreen-enabled .row {
+  background-color: #263241;
+}
+
+.preview {
+  width: 640px;
+  height: 485px;
+}
+/* .row:fullscreen {
+  background-color: #263241;
+} */
+
+.row:-moz-full-screen {
+  background-color: #263241;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  margin: auto;
+}
+
+.image {
+  border: 5px solid #fffff0;
+  color: #fffff0;
+  height: 100px;
+  width: 132px;
+  font-size: 20px;
+}
+
+.image {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.megan {
+  margin-block-start: 0.25em;
+  margin-block-end: 0px;
+  font-size: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dates > p {
+  margin-block-start: 0.35em;
+  margin-block-end: 0.35em;
+  font-size: 26px;
+}
+
+.clickToStart {
+  font-size: 30px;
+  font-weight: bold;
+  margin-block-start: 0.5em;
+}
+.amp {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+.hunter {
+  margin-block-start: 0px;
+  font-size: 25px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.overlay-count {
+  position: absolute;
+  width: 640px;
+  height: 485px;
+  top: 0px;
+  right: 0px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-size: 190px;
 }
 
-.App-link {
-  color: #09d3ac;
+.overlay-printing {
+  font-size: 70px;
 }
+
+.flash {
+  background-color: white;
+  z-index: 100;
+}
+
+.pic {
+  height: 100px;
+  width: 132px;
+  position: absolute;
+  left: 94px;
+}
+
+.pic-one {
+  top: 21px;
+}
+
+.pic-two {
+  top: 162px;
+}
+
+.pic-three {
+  top: 303px;
+}
+
+.count-3 {
+  font-size: 100px;
+}
+/* body {
+  background-color: #3e3e47;
+  color: #fff9dc;
+} */
