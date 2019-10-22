@@ -6,26 +6,20 @@ const reducer = (state, action) => {
         return {
           ...state,
           mode: "printing",
-          isFlash: false,
-          display: "Printing..."
+          isFlash: false
         };
       }
       return {
         ...state,
         mode: "countdown",
         count: 4,
-        isFlash: false,
-        display: "Ready?"
+        isFlash: false
       };
     case "decrement":
       const newCount = state.count - 1;
       console.log({ newCount });
-      if (newCount >= 0) {
-        let display = `${newCount}`;
-        if (newCount === 0) {
-          display = "";
-        }
-        return { ...state, mode: "countdown", count: newCount, display };
+      if (newCount > 0) {
+        return { ...state, mode: "countdown", count: newCount };
       } else {
         console.log("flash");
         return { ...state, mode: "flash", isFlash: true };

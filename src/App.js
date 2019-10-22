@@ -1,10 +1,15 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer } from "react";
 import Webcam from "react-webcam";
 import Fullscreen from "react-full-screen";
 
 import "./App.css";
 import Overlay from "./Overlay";
 import reducer from "./reducer";
+import StateMachine from "./StateMachine";
+import getDisplayAndClass from "./getDisplayAndClass";
+import ImageDate from "./ImageDate";
+import ImageStart from "./ImageStart";
+import ImageNames from "./ImageNames";
 
 const videoConstraints = {
   width: 640,
@@ -15,43 +20,33 @@ const videoConstraints = {
 function App() {
   const webcamRef = React.useRef(null);
   const divRef = React.useRef(null);
-
-  // const capture = React.useCallback(() => {
-  //   const imageSrc = webcamRef.current.getScreenshot();
-  // }, [webcamRef]);
+  const displayOverlayRef = React.useRef("");
 
   const [isFull, setFull] = useState(false);
   const [state, dispatch] = useReducer(reducer, { pictures: [] });
-  console.log({ state });
-  const { mode } = state;
-  const isTakePic = mode === "takePic";
-  useEffect(() => {
-    if (isTakePic) {
-      dispatch({ type: "storePic", data: webcamRef.current.getScreenshot() });
-    }
-  }, [isTakePic, dispatch]);
 
-  // console.log(webcamRef);
+  const { isFlash, mode, pictures } = state;
+  const [display, displayClass] = getDisplayAndClass(state);
   return (
     <Fullscreen enabled={isFull}>
-      {!!mode && <Overlay state={state} dispatch={dispatch} />}
+      <StateMachine
+        state={state}
+        dispatch={dispatch}
+        displayOverlayRef={displayOverlayRef}
+        webcamRef={webcamRef}
+      />
+      {!!mode && (
+        <Overlay
+          isFlash={isFlash}
+          display={display}
+          displayClass={displayClass}
+        />
+      )}
       <div className="row">
         <div className="images">
-          {/* <button onClick={capture}>Capture photo</button> */}
-          {/* <div style={{ fontSize: "20px" }}>"test" test test</div> */}
-          <div className="image dates" onClick={() => setFull(true)}>
-            <p className="date">
-              October 26<sup>th</sup>
-            </p>
-            <p>2019</p>
-          </div>
-          <div className="image" onClick={() => dispatch({ type: "start" })}>
-            <p className="clickToStart">Click Here To Start!</p>
-          </div>
-          <div className="image meganAndHunter">
-            <p className="megan">Megan</p> <p className="amp">&</p>{" "}
-            <p className="hunter">Hunter</p>
-          </div>
+          <ImageDate setFull={setFull} pictures={pictures} />
+          <ImageStart dispatch={dispatch} pictures={pictures} />
+          <ImageNames pictures={pictures} />
         </div>
         <div className="preview" ref={divRef}>
           <Webcam

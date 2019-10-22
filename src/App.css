@@ -60,8 +60,8 @@ body {
 .image {
   border: 5px solid #fffff0;
   color: #fffff0;
-  height: 100px;
-  width: 132px;
+  height: 175px;
+  width: 230px;
   font-size: 20px;
 }
 
@@ -69,35 +69,47 @@ body {
   text-align: center;
 }
 
-.megan {
-  margin-block-start: 0.25em;
-  margin-block-end: 0px;
-  font-size: 25px;
-}
-
 .dates > p {
-  margin-block-start: 0.35em;
+  /* margin-block-start: 0.35em;
   margin-block-end: 0.35em;
-  font-size: 26px;
+  font-size: 26px; */
+  margin-block-start: 0.65em;
+  margin-block-end: 0.35em;
+  font-size: 1.9em;
+  padding: 0 0.25em 0 0.25em;
 }
 
 .clickToStart {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
   margin-block-start: 0.5em;
 }
-.amp {
-  margin-block-start: 0px;
+
+.name {
+  margin-block-start: 0.25em;
   margin-block-end: 0px;
+  font-size: 2.75em;
+}
+/* .megan {
+  margin-block-start: 0.25em;
+  margin-block-end: 0px;
+  font-size: 25px;
+} */
+.amp {
+  /* margin-block-start: 0px;
+  margin-block-end: -0.25em; */
+  margin-block-start: -0.5em;
+  margin-block-end: -0.75em;
+  font-size: 3em;
 }
 
-.hunter {
+/* .hunter {
   margin-block-start: 0px;
   font-size: 25px;
-}
+} */
 
 .overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
@@ -108,12 +120,13 @@ body {
   position: absolute;
   width: 640px;
   height: 485px;
-  top: 0px;
+  top: 58px;
   right: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 190px;
+  /* border: 1px solid red; */
 }
 
 .overlay-printing {
@@ -126,10 +139,12 @@ body {
 }
 
 .pic {
-  height: 100px;
+  /* height: 100px;
   width: 132px;
   position: absolute;
-  left: 94px;
+  left: 94px; */
+  height: 175px;
+  width: 230px;
 }
 
 .pic-one {
@@ -144,7 +159,7 @@ body {
   top: 303px;
 }
 
-.count-3 {
+.count-4 {
   font-size: 100px;
 }
 /* body {
